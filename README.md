@@ -29,3 +29,7 @@ pnpm test
 
 pnpm build
 ```
+
+## Scheduler
+
+This section details how the scheduler itself is designed to work.

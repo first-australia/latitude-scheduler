@@ -1,7 +1,7 @@
 import { TimePoint } from "./datetime";
 import Instance from "./instance";
 
-export class Team {
+export class TeamParams {
   _id: string;
   _number: string;
   _name: string;
@@ -54,7 +54,7 @@ export class Team {
 
   static freeze(o) {
     return {
-      _class: "Team",
+      _class: "TeamParams",
       number: o.number,
       name: o.name,
       id: o.id,
@@ -70,7 +70,7 @@ export class Team {
   }
 
   static thaw(o) {
-    let T = new Team(o.id, o.number);
+    let T = new TeamParams(o.id, o.number);
     T.name = o.name;
     T.affiliation = o.affiliation;
     T.pitNum = o.pitNum;

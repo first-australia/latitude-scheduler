@@ -1,12 +1,12 @@
-import { AwardPreset, awardPresetToList, awardPresets } from "./awards";
-import { TimePoint, TournamentDateConfig } from "./types/datetime";
-import { TournamentSponsors } from "./types/sponsors";
-import { Team } from "./types/team";
-import { Version } from "./types/version";
+import { AwardPreset, awardPresetToList, awardPresets } from "../awards";
+import { TimePoint, TournamentDateConfig } from "./datetime";
+import { TournamentSponsors } from "./sponsors";
+import { TeamParams } from "./teamParams";
+import { Version } from "../types/version";
 
 export type TournamentState = "Initialising" | "Configuring" | "Ready";
 
-export default class Tournament {
+export default class EventParams {
   _version: Version;
   _title: string;
   _state: TournamentState = "Initialising";
@@ -33,7 +33,7 @@ export default class Tournament {
   _tempNames?: string[];
   _pageFormat?: string;
 
-  _teams: Team[] = [];
+  _teams: TeamParams[] = [];
 
   _errors: number;
 
@@ -47,9 +47,9 @@ export default class Tournament {
     this._version = version;
     this.title = title;
     let id = Math.floor(Math.random() * 100 + 1);
-    let A: Team[] = [];
+    let A: TeamParams[] = [];
     while (nTeams > 0) {
-      A.push(new Team(id, nTeams));
+      A.push(new TeamParams(id, nTeams));
       nTeams--;
       id += Math.floor(Math.random() * 100 + 1);
     }
@@ -268,7 +268,7 @@ export default class Tournament {
 
   static freeze(o) {
     return {
-      _class: "Tournament",
+      _class: "EventParams",
       _version: o._version,
       _title: o._title,
       _teams: o._teams,
@@ -293,7 +293,7 @@ export default class Tournament {
   }
 
   static thaw(o) {
-    let E = new Tournament(o._version, o._title);
+    let E = new EventParams(o._version, o._title);
     console.log("Saved object:");
     console.log(o);
     E._teams = o._teams;

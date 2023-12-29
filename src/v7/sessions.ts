@@ -104,7 +104,7 @@ export const TYPES = {
   BREAK: new SessionType(64, "Breaks", 0, "Break", "Everywhere"),
 };
 
-export default class Session {
+export default class SessionParams {
   private _id: string;
   private _type: SessionType;
   private _name: string;
@@ -380,7 +380,7 @@ export default class Session {
   }
 
   static thaw(o) {
-    let S = new Session(o._id, o._type, o._name);
+    let S = new SessionParams(o._id, o._type, o._name);
     S._locations = o._locations;
     S._universal = o._universal;
     S._startTime = o._startTime;
