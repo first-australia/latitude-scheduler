@@ -1,6 +1,7 @@
 import { AwardPreset } from "../awards";
 import { Preset, getPreset } from "../presets";
 import Activity from "./activity";
+import { TournamentConfig, TournamentOptions } from "./config";
 import Team from "./team";
 
 type TournamentInitialProps = {
@@ -9,33 +10,6 @@ type TournamentInitialProps = {
   preset?: Preset;
   numberOfDays?: number;
 };
-
-/** Aesthetic options for tournament export */
-export class TournamentOptions {
-  dayNames: string[];
-  awardPreset: AwardPreset = "reqopt0f";
-
-  constructor() {}
-}
-
-/** Functional options for configuring a tournament */
-export class TournamentConfig {
-  /**
-   * Start time of the tournament (nothing can be scheduled before this)
-   *  in minutes on the first day, from 0 (midnight) to 1440
-   */
-  startTime: number;
-
-  /**
-   * End time of the tournament (nothing can be scheduled after this)
-   *  in minutes on the last day, from 0 (midnight) to 1440
-   */
-  endTime: number;
-
-  numberOfDays: number;
-
-  constructor() {}
-}
 
 export default class Tournament {
   name: string;
