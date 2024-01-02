@@ -16,8 +16,6 @@ yarn add latitude-scheduler
 pnpm i --save latitude-scheduler
 ```
 
-##
-
 ## Development
 
 Developing inside this repo is reasonably straightforward; the source code is in the `src` directory, tests are conducted using Jest, and we build the code using TSUP.

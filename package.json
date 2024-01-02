@@ -26,6 +26,7 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
-    "luxon": "^3.4.4"
+    "luxon": "^3.4.4",
+    "uuid": "^9.0.1"
   }
 }

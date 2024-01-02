@@ -22,7 +22,7 @@ export default class Tournament {
     name = "Tournament",
     numberOfDays,
     numberOfTeams = 24,
-    preset = "AUS FLL",
+    preset = "ausFLL",
   }: TournamentInitialProps) {
     this.name = name;
     this.teams = new Array(numberOfTeams)
